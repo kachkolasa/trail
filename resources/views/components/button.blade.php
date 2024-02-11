@@ -11,7 +11,7 @@ if($color == "secondary"){
 @endphp
 
 {{-- Tailwind Load These Classes --}}
-{{-- bg-gray-900 bg-gray-800 hover:bg-gray-800 --}}
+{{-- bg-gray-900 bg-gray-800 hover:bg-gray-800 bg-primary hover:bg-primary-dark --}}
 
 <button {{ $disabled ? 'disabled' : '' }} {{ $attributes->merge(["class" => "bg-".$colors["default"]." text-white rounded-md px-5 py-2 hover:bg-".$colors["hover"]." duration-100 disabled:opacity-25"]) }}>
     {{$slot}}

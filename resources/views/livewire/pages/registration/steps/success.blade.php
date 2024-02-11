@@ -28,7 +28,7 @@
         </div>
         <div>
             <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Date of Birth:</p>
-            <p class="text-gray-900 dark:text-white font-semibold">{{ $submission->date_of_birth }}</p>
+            <p class="text-gray-900 dark:text-white font-semibold">{{ $submission->date_of_birth->format("m-d-Y") }}</p>
         </div>
         <div>
             <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Are you married?</p>
@@ -37,7 +37,7 @@
         @if($submission->is_married)
             <div>
                 <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Date of Marriage:</p>
-                <p class="text-gray-900 dark:text-white font-semibold">{{ $submission->date_of_marriage }}</p>
+                <p class="text-gray-900 dark:text-white font-semibold">{{ $submission->date_of_marriage->format("m-d-Y") }}</p>
             </div>
             <div>
                 <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Country of Marriage:</p>

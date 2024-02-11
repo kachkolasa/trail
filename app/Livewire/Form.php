@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Http\Controllers\SubmissionController;
 use Carbon\Carbon;
 use Livewire\Component;
+use Livewire\Attributes\On; 
 
 class Form extends Component
 {
@@ -166,5 +167,26 @@ class Form extends Component
     public function render()
     {
         return view('livewire.pages.registration.form');
+    }
+
+
+
+
+
+
+
+
+    # Events
+    #[On('dropdown-select-value-changed')]
+    public function change_value($data){
+        $this->{$data['name']} = $data['value'];
+
+        if($data["name"] == "dob_day" || $data["name"] == "dob_month" || $data["name"] == "dob_year"){
+            $this->dob_changed();
+        }
+
+        if($data["name"] == "marriage_day" || $data["name"] == "marriage_month" || $data["name"] == "marriage_year"){
+            $this->marriage_date_changed();
+        }
     }
 }

@@ -42,31 +42,49 @@
 
     {{-- Date of Birth --}}
     <div class="col-span-2">
-        <x-input-label for="dob_day" label="Date of Birth" />
-        <div class="grid grid-cols-3 gap-2">
+        <x-input-label for="dob_month" label="Date of Birth" />
+        <div class="flex gap-2">
             <div>
-                <x-select name="dob_month" id="dob_month" wire:model="dob_month" wire:change="dob_changed">
-                    <option value="" selected>Month</option>
-                    @for ($i = 1; $i <= 12; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </x-select>
+                @livewire("dropdown-select", [
+                    "name" => "dob_month",
+                    "id" => "dob_month",
+                    "options" => range(1, 12),
+                    "placeholder" => "mm",
+                    "class" => "!w-[50px]",
+                    "width" => "50px",
+                    "type" => "number",
+                    "min" => 1,
+                    "max" => 12,
+                    "selected" => $dob_month
+                ])
             </div>
             <div>
-                <x-select name="dob_day" id="dob_day" wire:model="dob_day" wire:change="dob_changed">
-                    <option value="" selected>Day</option>
-                    @for ($i = 1; $i <= 31; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </x-select>
+                @livewire("dropdown-select", [
+                    "name" => "dob_day",
+                    "id" => "dob_day",
+                    "options" => range(1, 31),
+                    "placeholder" => "dd",
+                    "class" => "!w-[50px]",
+                    "width" => "50px",
+                    "type" => "number",
+                    "min" => 1,
+                    "max" => 31,
+                    "selected" => $dob_day
+                ])
             </div>
             <div>
-                <x-select name="dob_year" id="dob_year" wire:model="dob_year" wire:change="dob_changed">
-                    <option value="" selected>Year</option>
-                    @for ($i = 1900; $i <= intval(date("Y")); $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </x-select>
+                @livewire("dropdown-select", [
+                    "name" => "dob_year",
+                    "id" => "dob_year",
+                    "options" => range(1900, intval(date("Y"))),
+                    "placeholder" => "yyyy",
+                    "class" => "!w-[80px]",
+                    "width" => "80px",
+                    "type" => "number",
+                    "min" => 1900,
+                    "max" => intval(date("Y")),
+                    "selected" => $dob_year
+                ])
             </div>
         </div>
         <x-input-error for="dob_day" />

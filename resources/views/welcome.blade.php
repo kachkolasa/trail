@@ -27,5 +27,54 @@
                 </div>
             </div>
         </div>
+
+        @stack("js")
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.addEventListener("focus", function(e) {
+                    if(e.target.matches(".dropdown-select input")) {
+                        console.log("focus")
+                        e.target.parentElement.querySelector("ul").classList.add("block");
+                        e.target.parentElement.querySelector("ul").classList.remove("hidden");
+                    }
+                }, true);
+
+                document.addEventListener("blur", function(e) {
+                    if(e.target.matches(".dropdown-select input")) {
+                        setTimeout(() => {
+                            e.target.parentElement.querySelector("ul").classList.add("hidden");
+                            e.target.parentElement.querySelector("ul").classList.remove("block");
+                        }, 200);
+                    }
+                }, true);
+
+                document.addEventListener("input", function(e) {
+                    if(e.target.matches(".dropdown-select input[type='number']")) {
+                        if(e.target.value > parseInt(e.target.getAttribute("max"))) {
+                            e.target.value = e.target.getAttribute("max");
+                            e.target.dispatchEvent(new Event("input"));
+                            e.target.dispatchEvent(new Event("change"));
+                        }
+                    }
+                });
+
+                document.addEventListener("keydown", function(e) {
+                    if(e.target.matches(".dropdown-select input") && e.key == "Enter") {
+                        e.preventDefault();
+                    }
+                });
+
+                document.addEventListener("click", function(e) {
+                    if(e.target.matches(".dropdown-select .option")) {
+                        const input = e.target.closest(".dropdown-select").querySelector("input");
+                        input.value = e.target.innerText;
+                        input.dispatchEvent(new Event("input"));
+                        input.dispatchEvent(new Event("change"));
+                    }
+                });
+
+            });
+
+        </script>
     </body>
 </html>

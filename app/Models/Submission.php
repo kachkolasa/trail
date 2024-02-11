@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Submission extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        "date_of_birth" => "date",
+        "marriage_date" => "date",
+    ];
 }

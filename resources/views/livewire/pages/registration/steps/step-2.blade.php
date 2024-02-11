@@ -21,31 +21,49 @@
         
         {{-- Date of Marriage --}}
         <div>
-            <x-input-label for="marriage_day" label="Date of Marriage" />
-            <div class="grid grid-cols-3 gap-2">
+            <x-input-label for="marriage_month" label="Date of Marriage" />
+            <div class="flex gap-2">
                 <div>
-                    <x-select name="marriage_month" id="marriage_month" wire:model="marriage_month" wire:change="marriage_date_changed">
-                        <option value="" selected>Month</option>
-                        @for ($i = 1; $i <= 12; $i++)
-                            <option value="{{ $i }}">{{ $i }}</option>
-                        @endfor
-                    </x-select>
+                    @livewire("dropdown-select", [
+                        "name" => "marriage_month",
+                        "id" => "marriage_month",
+                        "options" => range(1, 12),
+                        "placeholder" => "mm",
+                        "class" => "!w-[50px]",
+                        "width" => "50px",
+                        "type" => "number",
+                        "min" => 1,
+                        "max" => 12,
+                        "selected" => $marriage_month
+                    ])
                 </div>
                 <div>
-                    <x-select name="marriage_day" id="marriage_day" wire:model="marriage_day" wire:change="marriage_date_changed">
-                        <option value="" selected>Day</option>
-                        @for ($i = 1; $i <= 31; $i++)
-                            <option value="{{ $i }}">{{ $i }}</option>
-                        @endfor
-                    </x-select>
+                    @livewire("dropdown-select", [
+                        "name" => "marriage_day",
+                        "id" => "marriage_day",
+                        "options" => range(1, 31),
+                        "placeholder" => "dd",
+                        "class" => "!w-[50px]",
+                        "width" => "50px",
+                        "type" => "number",
+                        "min" => 1,
+                        "max" => 31,
+                        "selected" => $marriage_day
+                    ])
                 </div>
                 <div>
-                    <x-select name="marriage_year" id="marriage_year" wire:model="marriage_year" wire:change="marriage_date_changed">
-                        <option value="" selected>Year</option>
-                        @for ($i = 1900; $i <= 2024; $i++)
-                            <option value="{{ $i }}">{{ $i }}</option>
-                        @endfor
-                    </x-select>
+                    @livewire("dropdown-select", [
+                        "name" => "marriage_year",
+                        "id" => "marriage_year",
+                        "options" => range(1900, intval(date("Y"))),
+                        "placeholder" => "yyyy",
+                        "class" => "!w-[80px]",
+                        "width" => "80px",
+                        "type" => "number",
+                        "min" => 1900,
+                        "max" => intval(date("Y")),
+                        "selected" => $marriage_year
+                    ])
                 </div>
             </div>
             <x-input-error for="marriage_day" />

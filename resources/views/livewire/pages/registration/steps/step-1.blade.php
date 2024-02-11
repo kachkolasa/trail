@@ -1,5 +1,5 @@
 
-<div class="grid grid-cols-2 gap-5">
+<div class="md:grid grid-cols-2 gap-5 [&>*]:mb-5 md:[&>*]:mb-0">
     {{-- First Name --}}
     <div class="">
         <x-input-label for="first_name" label="First Name" />

@@ -53,9 +53,9 @@
                 <p class="text-gray-900 dark:text-white font-semibold">{{ $submission->ever_married ? "Yes" : "No" }}</p>
             </div>
         @endif
+    </div>
 
-        <div>
-            <x-button color="secondary" wire:click="restart">Submit another one</x-button>
-        </div>
+    <div>
+        <x-button color="secondary" wire:click="restart">Submit another one</x-button>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="grid grid-cols-2 gap-5">
+<div class="md:grid grid-cols-2 gap-5 [&>*]:mb-5 md:[&>*]:mb-0">
     
     {{-- Are you married --}}
     <div class="col-span-2">

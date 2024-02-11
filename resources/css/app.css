@@ -25,3 +25,14 @@
     @apply bg-gray-800;
     border-radius: 10px;
 }
+
+.radio{
+    @apply min-w-[100px] flex items-center justify-center bg-gray-800 text-gray-400 cursor-pointer p-2;
+}
+
+.radio.yes.active{
+    @apply bg-green-500/25 text-green-500
+}
+.radio.no.active{
+    @apply bg-red-500/25 text-red-500
+}

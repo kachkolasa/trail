@@ -121,6 +121,18 @@ class Form extends Component
         $this->is_married = $value;
     }
 
+    // Changing the value of is_widowed when value changes on the form
+    public function set_is_widowed($value)
+    {
+        $this->is_widowed = $value;
+    }
+
+    // Changing the value of ever_married when value changes on the form
+    public function set_ever_married($value)
+    {
+        $this->ever_married = $value;
+    }
+
     // Combining the date fields to a single date for Date of Birth. Triggered when value of dob_day, dob_month, or dob_year changes
     public function dob_changed()
     {
@@ -159,6 +171,7 @@ class Form extends Component
         $this->step = 3;
     }
 
+    // Reset the form, triggered when click "Start another submission"
     public function restart()
     {
         $this->reset();

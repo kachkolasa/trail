@@ -3,15 +3,15 @@
     {{-- Are you married --}}
     <div class="col-span-2">
         <x-input-label for="is_married" label="Are you married?" />
-        <div class="flex gap-5">
-            <div class="flex items-center">
-                <input type="radio" name="is_married" value="1" id="is_married_yes" wire:model="is_married" wire:change="set_is_married(true)">
-                <label for="is_married_yes" class="ml-2 text-gray-400">Yes</label>
-            </div>
-            <div class="flex items-center">
-                <input type="radio" name="is_married" value="0" id="is_married_no" wire:model="is_married" wire:change="set_is_married(false)">
-                <label for="is_married_no" class="ml-2 text-gray-400">No</label>
-            </div>
+        <div class="flex">
+            <label for="is_married_yes" class="radio yes rounded-l-md border-r border-gray-900 @if($is_married == 1) active @endif">
+                <input type="radio" name="is_married" value="1" id="is_married_yes" wire:model="is_married" wire:change="set_is_married(true)" style="display: none">
+                Yes
+            </label>
+            <label for="is_married_no" class="radio no rounded-r-md  @if($is_married == 0 && $is_married !== null) active @endif">
+                <input type="radio" name="is_married" value="0" id="is_married_no" wire:model="is_married" wire:change="set_is_married(false)" style="display: none">
+                No
+            </label>
         </div>
         <x-input-error for="is_married" />
     </div>
@@ -91,15 +91,15 @@
         {{-- Are you widowed --}}
         <div>
             <x-input-label for="is_widowed" label="Are you widowed?" />
-            <div class="flex gap-5">
-                <div class="flex items-center">
-                    <input type="radio" name="is_widowed" value="1" id="is_widowed_yes" wire:model="is_widowed">
-                    <label for="is_widowed_yes" class="ml-2 text-gray-400">Yes</label>
-                </div>
-                <div class="flex items-center">
-                    <input type="radio" name="is_widowed" value="0" id="is_widowed_no" wire:model="is_widowed">
-                    <label for="is_widowed_no" class="ml-2 text-gray-400">No</label>
-                </div>
+            <div class="flex">
+                <label for="is_widowed_yes" class="radio yes rounded-l-md border-r border-gray-900 @if($is_widowed == 1) active @endif">
+                    <input type="radio" name="is_widowed" value="1" id="is_widowed_yes" wire:model="is_widowed" wire:change="set_is_widowed(true)" style="display: none">
+                    Yes
+                </label>
+                <label for="is_widowed_no" class="radio no rounded-r-md  @if($is_widowed == 0 && $is_widowed !== null) active @endif">
+                    <input type="radio" name="is_widowed" value="0" id="is_widowed_no" wire:model="is_widowed" wire:change="set_is_widowed(false)" style="display: none">
+                    No
+                </label>
             </div>
             <x-input-error for="is_widowed" />
         </div>
@@ -107,15 +107,15 @@
         {{-- Ever been married --}}
         <div>
             <x-input-label for="ever_married" label="Have you ever been married in the past?" />
-            <div class="flex gap-5">
-                <div class="flex items-center">
-                    <input type="radio" name="ever_married" value="1" id="ever_married_yes" wire:model="ever_married">
-                    <label for="ever_married_yes" class="ml-2 text-gray-400">Yes</label>
-                </div>
-                <div class="flex items-center">
-                    <input type="radio" name="ever_married" value="0" id="ever_married_no" wire:model="ever_married">
-                    <label for="ever_married_no" class="ml-2 text-gray-400">No</label>
-                </div>
+            <div class="flex">
+                <label for="ever_married_yes" class="radio yes rounded-l-md border-r border-gray-900 @if($ever_married == 1) active @endif">
+                    <input type="radio" name="ever_married" value="1" id="ever_married_yes" wire:model="ever_married" wire:change="set_ever_married(true)" style="display: none">
+                    Yes
+                </label>
+                <label for="ever_married_no" class="radio no rounded-r-md  @if($ever_married == 0 && $ever_married !== null) active @endif">
+                    <input type="radio" name="ever_married" value="0" id="ever_married_no" wire:model="ever_married" wire:change="set_ever_married(false)" style="display: none">
+                    No
+                </label>
             </div>
             <x-input-error for="ever_married" />
         </div>

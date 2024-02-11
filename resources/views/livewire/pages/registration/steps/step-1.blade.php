@@ -45,17 +45,17 @@
         <x-input-label for="dob_day" label="Date of Birth" />
         <div class="grid grid-cols-3 gap-2">
             <div>
-                <x-select name="dob_day" id="dob_day" wire:model="dob_day" wire:change="dob_changed">
-                    <option value="" selected>Day</option>
-                    @for ($i = 1; $i <= 31; $i++)
+                <x-select name="dob_month" id="dob_month" wire:model="dob_month" wire:change="dob_changed">
+                    <option value="" selected>Month</option>
+                    @for ($i = 1; $i <= 12; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                 </x-select>
             </div>
             <div>
-                <x-select name="dob_month" id="dob_month" wire:model="dob_month" wire:change="dob_changed">
-                    <option value="" selected>Month</option>
-                    @for ($i = 1; $i <= 12; $i++)
+                <x-select name="dob_day" id="dob_day" wire:model="dob_day" wire:change="dob_changed">
+                    <option value="" selected>Day</option>
+                    @for ($i = 1; $i <= 31; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                 </x-select>

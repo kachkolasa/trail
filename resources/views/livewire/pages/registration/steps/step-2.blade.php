@@ -24,17 +24,17 @@
             <x-input-label for="marriage_day" label="Date of Marriage" />
             <div class="grid grid-cols-3 gap-2">
                 <div>
-                    <x-select name="marriage_day" id="marriage_day" wire:model="marriage_day" wire:change="marriage_date_changed">
-                        <option value="" selected>Day</option>
-                        @for ($i = 1; $i <= 31; $i++)
+                    <x-select name="marriage_month" id="marriage_month" wire:model="marriage_month" wire:change="marriage_date_changed">
+                        <option value="" selected>Month</option>
+                        @for ($i = 1; $i <= 12; $i++)
                             <option value="{{ $i }}">{{ $i }}</option>
                         @endfor
                     </x-select>
                 </div>
                 <div>
-                    <x-select name="marriage_month" id="marriage_month" wire:model="marriage_month" wire:change="marriage_date_changed">
-                        <option value="" selected>Month</option>
-                        @for ($i = 1; $i <= 12; $i++)
+                    <x-select name="marriage_day" id="marriage_day" wire:model="marriage_day" wire:change="marriage_date_changed">
+                        <option value="" selected>Day</option>
+                        @for ($i = 1; $i <= 31; $i++)
                             <option value="{{ $i }}">{{ $i }}</option>
                         @endfor
                     </x-select>
